@@ -13,21 +13,43 @@
 
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
+'''
+or num in 1...10{
+print(String(num), terminator: " ")
 
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+    for num in 5...51{
+        if num % 2 == 0 && num <= 50 {
+            print(String(num),terminator:" ") 
+    }
+}
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
-
+'''
+    for num in 1...60{
+        if num % 10 == 4  {
+            print(String(num),terminator:" ")
+    }
+}
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+
+let statement = "hello world"
+var counter = 0
+for char in statement{
+    if counter < 11 {
+print(char)
+    counter += 1
+}else{break}
+}
 
 ***
 ## Question 5
@@ -35,7 +57,16 @@ Print each character in the string `"Hello world!"`
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+'''
+my answer is wrong im stumped 
 
+let myStringSeven = "hello world"
+myStringSeven.count
+
+let endIndex = myStringSeven.endIndex
+let lastCharacter = myStringSeven.index(before: endIndex)
+
+print("last character in \(myStringSeven) is \(d) ")
 ***
 ## Question 6
 
@@ -43,6 +74,17 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+let stringLegnth = "get the bag"
+stringLegnth.count
+for char in stringLegnth {
+    where: (char % 2 == 0)
+    switch stringLegnth {
+    case: (0...11)
+print(char)
+    default:
+        print("")
+}
+}
 ***
 ## Question 7
 
