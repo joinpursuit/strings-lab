@@ -14,27 +14,65 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+``` swfit 
+var blank = ""
+for num in 1...10 {
+blank += String(num) + " "
+}
+print(blank)
+ ```
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+``` swift 
+var blank = ""
+for num in 5...51 {
+    if num % 2 == 0 {
+        blank += String(num) + " "
+    }
+}
+print(blank)
+```
+
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
+```
+var blank = ""
+for num in 1...60 {
+    if num % 10 == 4 {
+        blank += String(num) + " "
+    }
+}
+print(blank)
+```
 
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
-
+```
+let strings = "Hello world!"
+for chars in strings {
+    print(chars)
+    }
+```
 ***
 ## Question 5
 
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+```
+let myStringSeven = "Hello world!"
+let endIndexInSeven = myStringSeven.endIndex
+let lastCharacterInSeven = myStringSeven.index(before: endIndexInSeven)
+let lastCharacterSeven = myStringSeven[lastCharacterInSeven]
+print(lastCharacterSeven)
+```
 
 ***
 ## Question 6
@@ -42,17 +80,71 @@ Print out the last character in the string below.  You cannot use the Character 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
+```
+let words = "odd"
+var counter = 0
+switch true {
+case words.count % 2 == 0:
+    for char in words {
+        print(char)
+    }
+default:
+    for char in words {
+        if counter % 2 == 0 {
+            print(char)
+            counter += 1
+        } else {
+            counter += 1
+            }
+    }
+
+
+
+```
 
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
-
+```
+var string: Character = "x"
+```
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+```
+let unicodeLowerE = "\u{0065}"
+let lowerE = "e"
+if unicodeLowerE == lowerE {
+    print("they are equal")
+}
 
+let unicodeLowerA = "\u{0061}"
+let lowerA = "a"
+if unicodeLowerA == lowerA {
+    print("they are equal")
+}
+
+let unicodeLowerB = "\u{0062}"
+let lowerB = "b"
+if unicodeLowerB == lowerB {
+    print("they are equal")
+}
+
+let unicodeLowerC = "\u{0063}"
+let lowerC = "c"
+if unicodeLowerC == lowerC {
+    print("they are equal")
+}
+
+let unicodeLowerD = "\u{0064}"
+let lowerD = "d"
+if unicodeLowerD == lowerD {
+    print("they are equal")
+}
+
+```
 ***
 ## Question 9
 
@@ -62,6 +154,12 @@ Build five pairs of **canonically equivalent** strings, the first of each being 
 ## Question 10
 
 **Using only Unicode**, print out your name.
+```
+let myName = "\u{0054}\u{0073}\u{0065}\u{0072}\u{0069}\u{006E}\u{0067}"
+print(myName)
+
+```
+
 
 ***
 ## Question 11
@@ -89,6 +187,7 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
+
 ```
 
 ***
