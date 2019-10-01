@@ -234,6 +234,18 @@ Input:
 Output:
 `"olleH"`
 
+```swift
+var bString = "Hello"
+var empty = ""
+
+for _ in bString {
+    let lastIndex = bString.index(before: bString.endIndex)
+    empty += String(bString[lastIndex])
+    bString.removeLast()
+}
+
+print(empty)
+```
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
 
