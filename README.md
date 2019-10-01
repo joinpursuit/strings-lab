@@ -14,21 +14,60 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+Answer
+```swift
+var numString = ""
+
+for num in 1...10 {
+    numString += String(num)
+}
+
+print(numString)
+```
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
 
+Answer
+```swift
+var numString = ""
+
+for num in 5...51 {
+    numString += String(num)
+}
+
+print(numString)
+```
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+Answer
+```swift
+var numString = ""
+
+for num in 1...60 where num % 10 == 4 {
+    numString += String(num)
+}
+
+print(numString)
+```
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
 
+Answer
+```swift
+var str = "Hello world!"
+
+for char in str {
+    print(char)
+}
+
+```
 ***
 ## Question 5
 
@@ -36,6 +75,15 @@ Print out the last character in the string below.  You cannot use the Character 
 
 `let myStringSeven = "Hello world!"`
 
+Answer
+```swift
+let myStringSeven = "Hello world!"
+let endIndex = myStringSeven.endIndex
+let lastCharacterIndex = myStringSeven.index(before: endIndex)
+let lastCharacter = myStringSeven[lastCharacterIndex]
+
+print(lastCharacter)
+```
 ***
 ## Question 6
 
@@ -43,31 +91,82 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+Answer
+```swift
+var str = "123456789"
+var bool = true
+
+if str.count % 2 == 0 {
+    bool = true
+} else {
+    bool = false
+}
+
+
+for (index, char) in str.enumerated() {
+    if bool == true {
+        print(char)
+    } else {
+        if (index + 1) % 2 == 0 {
+            print(char)
+        }
+    }
+}
+
+// YOU SAID SWITCHES!! NOT TO USE SWITCH!!
+```
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 
+Answer
+```swift
+var char: Character = "a"
+type(of:char)
+```
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
 
+Answer
+```swift
+var hello = "helLo"
+var helloUnicode = "\u{0068}\u{0065}\u{006C}\u{004C}\u{006F}"
+
+hello == helloUnicode
+
+"á" == "\u{00E1}"
+
+```
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
 
+Answer
+```swift
+print("\u{0048}\u{0065}\u{006C}\u{006C}\u{006F}\u{0020}\u{0057}\u{006F}\u{0072}\u{006C}\u{0064}\u{0021}")
+```
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
 
+Answer
+```swift
+print("\u{0048}\u{0065}\u{006C}\u{006C}\u{006F}\u{0020}\u{0057}\u{006F}\u{0072}\u{006C}\u{0064}\u{0021}")
+```
 ***
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
 
+Answer
+```swift
+print("\u{0048}\u{0065}\u{006C}\u{006C}\u{006F}\u{0020}\u{0057}\u{006F}\u{0072}\u{006C}\u{0064}\u{0021}")
+```
 ***
 ## Question 12
 
@@ -90,7 +189,25 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
+Answer
+```swift
+for num1 in 1...7 {
+    for num2 in 1...5 {
+        if num1 == 1 && num2 == 1 {
+            print("- - - - - - - - - - -")
+        }
+        if num2 == 5 || num2 == 5 && num1 == 7 {
+            print("| \u{2698} |")
+        } else {
+            print("| \u{2698}", terminator: " ")
+        }
+        if num1 == 7 && num2 == 5 {
+            print("- - - - - - - - - - -")
+        }
+    }
+}
 
+```
 ***
 ## Question 13
 
@@ -107,7 +224,10 @@ Chess Board:
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
+Answer
+```swift
 
+```
 ***
 ## Question 14
 
@@ -126,6 +246,10 @@ Input:
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
 
+Answer
+```swift
+
+```
 ***
 ## Question 15
 
@@ -145,6 +269,11 @@ Input:
 Output:
 `"olleH"`
 
+
+Answer
+```swift
+
+```
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
 
@@ -169,7 +298,10 @@ be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
 ```
+Answer
+```swift
 
+```
 ***
 
 # Bonus :)
