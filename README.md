@@ -96,7 +96,8 @@ for (index, element) in str1.enumerated() {
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 ```swift
-var str2 = "A"
+var str2:Character = "B"
+var str3 = String(str2)
 
 ```
 
@@ -166,6 +167,32 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
+```
+
+My code:
+```swift
+
+var even = "|"
+var odd = "\u{2698}"
+var topAndBottomOfBox = """
+"""
+
+for _ in 0...10 {
+    topAndBottomOfBox += "- "
+}
+print(topAndBottomOfBox)
+for _ in 0...6 {
+    for x in 0...10 {
+        if x%2==0{
+            print(even, terminator: " ")
+        } else {
+            print(odd, terminator: " ")
+        }
+    }
+    print()
+}
+print(topAndBottomOfBox)
+}
 ```
 
 ***
