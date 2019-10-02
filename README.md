@@ -67,26 +67,51 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is odd, print out every other character.
 
 ***
+let message = "I will become a GREAT coder!!"
+print("there are \(message.count) characters in the message")
+
+if message.count % 2 == 0 {
+print ("string is even")
+} else {
+    print("string is odd")
+}
+switch message {
+case message where message.count % 2 == 0:
+    for char in message {
+        print(char, terminator: " ")
+    }
+default:
+    for (index,char) in message.enumerated() where index % 2 == 1 {
+        print(char, terminator: " ")
+}
+}
+
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 
 ***
+let char: Character = "M"
+let str = String(char)
+print(type(of: char))
+
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
 
 ***
+print("\u{00C0}  \u{0041}\u{0300}")
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
-
+print("\u{0048}\u{0065}\u{006c}\u{006c}\u{006f} \u{0077}\u{006f}\u{0072}\u{006c}\u{0064}\u{0021}")
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
 
 ***
+print("\u{004D}\u{0065}\u{006c}\u{0069}\u{006e}\u{0064}\u{0061}")
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
@@ -113,7 +138,17 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
-
+print(terminator:"""
+- - - - - - - - - - -
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+- - - - - - - - - - -
+""")
 ***
 ## Question 13
 
