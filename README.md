@@ -14,27 +14,71 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+```swift
+var numString = ""
+
+for num in 1...10{
+    numString += String(num)
+}
+
+print(numString)
+```
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+```swift
+var numStrings = ""
 
+for num in 5...51{
+    if num % 2 == 0 {
+    numStrings += String(num)
+    }
+}
+print(numStrings)
+```
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+```swift
+var endingIn4 = ""
+
+for num in 1...60 {
+    if num % 10 == 4 {
+        endingIn4 += String(num)
+    }
+}
+
+print(endingIn4)
+```
+
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+```swift
 
+for letter in " Hello World" {
+    print(letter)
+}
+```
 ***
 ## Question 5
 
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+
+```swift
+let myStringSeven = "Hello world!"
+
+let lastIndex = myStringSeven.index(before: myStringSeven.endIndex)
+let lastCharacter = myStringSeven[lastIndex]
+
+print("The last character of \(myStringSeven) is \(lastCharacter)")
+```
 
 ***
 ## Question 6
@@ -43,15 +87,47 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+```swift
+let name = "Ameni Alsaydi"
+let stringLength = name.count
+print(stringLength)
+
+switch name {
+case name where stringLength % 2 == 0:
+    print(name)
+default:
+    for (index, char) in name.enumerated() where index % 2 == 1 {
+        print (char, terminator: " " )
+    }
+}
+```
+
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 
+```swift
+
+let myString: Character = "a"
+
+print(type(of: myString))
+```
+
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+```swift
+let regName = "ameni"
+let uniCodeName = ("\u{0061}\u{006D}\u{0065}\u{006E}\u{0069}")
+
+if regName == uniCodeName {
+    print("\(regName) and \(uniCodeName) are equivalent")
+} else {
+    print("They are not equivalent")
+}
+```
 
 ***
 ## Question 9
@@ -61,7 +137,11 @@ Build five pairs of **canonically equivalent** strings, the first of each being 
 ***
 ## Question 10
 
-**Using only Unicode**, print out your name.
+**Using only Unicode**, print out your name. 
+
+```swift
+print("\u{0061}\u{006D}\u{0065}\u{006E}\u{0069}")
+```
 
 ***
 ## Question 11
@@ -90,6 +170,21 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
+```swift
+let flowerBox = """
+- - - - - - - - - - -
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+- - - - - - - - - - -
+"""
+
+print(flowerBox)
+```
 
 ***
 ## Question 13
@@ -107,6 +202,20 @@ Chess Board:
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
+```swift
+
+let chessBoard = """
+♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
+♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙
+
+
+
+
+♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
+♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+"""
+print(chessBoard)
+```
 
 ***
 ## Question 14
@@ -115,7 +224,19 @@ You are given a string stored in the variable `aString`. Create new string named
 
 ```swift
 var aString = "Replace the letter e with *"
-// Your code here
+// Your code here:
+
+var aString = "Replace the letter e with *"
+var newString = ""
+for charac in aString {
+    if charac != "e"{
+       newString += String(charac)
+    } else {
+      newString += "*"
+    }
+}
+
+print(newString)
  ```
 
 Example:
@@ -145,29 +266,43 @@ Input:
 Output:
 `"olleH"`
 
+```swift
+var bString = "Hello"
+var reverse = ""
+
+for _ in bString {
+    let lastIndex = bString.index(before: bString.endIndex)
+    reverse += String(bString[lastIndex])
+    bString.removeLast()
+}
+
+print(reverse)
+```
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
 
 ```swift
 
+var geographicLocation: String = "Manhattan"
+var adjective1: String = "deleicous"
+var pluralNoun1: String = "laptops"
+var adjective2: String = "smelly"
+var pluralNoun2: String = "chicken"
+var number1: Int = 56
+var number2: Int = 177273
+var articleOfClothing: String = "pants"
 
-var geographicLocation: String
-var adjective1: String
-var pluralNoun1: String
-var adjective2: String
-var pluralNoun2: String
-var number1: Int
-var number2: Int
-var articleOfClothing: String
+var madLib = """
+Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing)
+"""
 
-var madLib = "Here is tomorrow's weather report for \()
-and vicinity. Early tomorrow, a \()-front will
-collide with a mass of hot \() moving from the
-north. This means we can expect \() winds and
-occasional \() by late afternoon. Wind velocity will
-be \() miles an hour, and the high temperature should
-be around \() degrees. So, if you're going out, you had
-better plan on wearing your \()".
 ```
 
 ***
