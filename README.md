@@ -89,7 +89,10 @@ print(char)
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
-
+let firstCharacter: Character = "x"
+let  str = String(firstCharacter)
+print(type(of:firstCharacter))
+print(firstCharacter)
 ***
 ## Question 8
 
@@ -99,12 +102,15 @@ Build five pairs of **canonically equivalent** strings, the first of each being 
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+let helloWorld = "\u{0048}\u{0045}\u{004c}\u{004c}\u{004f}\u{0020}\u{0057}\u{004f}\u{0052}\u{004c}\u{0044}"
+print(helloWorld)
 
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
-
+let myName = "\u{0058}\u{0045}\u{0052}\u{0041}"
+print(myName)
 ***
 ## Question 11
 
