@@ -111,26 +111,16 @@ Write code that switches on a string, given the following conditions:
 ```
 Question #6 Answer
 
-var stringToSwitch = "Some string"
-var strLength = stringToSwitch.count
-var strEvenOrOdd = strLength % 2 == 0
+var message = "Some string"
 
-switch strEvenOrOdd{
-
-    case true:
-    for char in stringToSwitch{
-        print(char)
-    }
-    
+switch message {
+    case message where message.count % 2 == 0:
+        for letter in message{
+            print(letter, terminator:" ")
+        }
     default:
-    var printOrNotToPrint = true // Change to false if every other begins at second character
-    for char in stringToSwitch{
-    if printOrNotToPrint{
-        print(char)
-        printOrNotToPrint = false
-    } else{
-        printOrNotToPrint = true
-      }
+    for (index, letter) in message.enumerated() where index % 2 == 0 {
+        print(letter, terminator:" ")
     }
 }
 
@@ -146,6 +136,9 @@ Question #7 Answer
 
 let characterVariable: Character = "a"
 var stringVariable: String = String(characterVariable)
+
+print(type(of: characterVariable))
+print(type(of: stringVariable))
 ```
 
 ***
