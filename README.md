@@ -13,21 +13,80 @@
 
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
-
+______________________________________________________
+Answer:
+var numString = ""
+for num in 1...10 {
+    numString += String(num)
+}
+print(numString)
+// Output 12345678910
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
 
+_____________________________________________________________________
+Answer:
+var numString = ""
+for num in 5...51 where num % 2 == 0 {
+    numString += String(num)
+}
+  print(numString)
+  
+  OR
+  
+  var numString = ""
+  for num in 5...51 {
+      if num % 2 == 0 {
+      numString += String(num)
+  }
+  }
+    print(numString)
+    
+// Output 68101214161820222426283032343638404244464850
+
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
+______________________________________________________________________________
+Answer:
+
+var numString = ""
+for num in 1...60 {
+    if num % 10 == 4 {
+    numString += String(num)
+}
+}
+  print(numString)
+  
+// Output 41424344454
 
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+______________________________________________
+let myString = "Hello world!"
+
+for (index, char) in myString.enumerated() {
+    print(char)
+}
+// Output 
+H
+e
+l
+l
+o
+
+w
+o
+r
+l
+d
+!
+
 
 ***
 ## Question 5
@@ -35,6 +94,17 @@ Print each character in the string `"Hello world!"`
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+_______________________________________________
+Answer:
+Was able to solve just following Alex notes through the class. Dont know how to remember it.
+
+let myStringSeven = "Hello world!"
+let endIndex = myStringSeven.endIndex
+let lastCharacterIndex = myStringSeven.index(before: endIndex)
+let lastCharacter = myStringSeven[lastCharacterIndex]
+print(lastCharacter)
+
+// Output !
 
 ***
 ## Question 6
@@ -42,31 +112,71 @@ Print out the last character in the string below.  You cannot use the Character 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
+______________________________________________________
+Answer:  will review on Oct 2
+where
 
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
-
+_________________________________________________________
+Answer: will review on Oct 2
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+____________________________
+Answer:
+let myCharacter = "A"
+let myCharacterUnicode = "\u{0041}"
+myCharacter == myCharacterUnicode
+// Outcome "A" "A" true
 
+let myCharacter = "U"
+let myCharacterUnicode = "\u{0055}"
+myCharacter == myCharacterUnicode
+// Outcome "U" "U" true
+
+let myApostrophe = "'"
+let myApostropUnicode = "\u{0027}"
+myApostrophe == myApostropUnicode
+// Outcome "''" "''" true
+
+let myEmojiAvo = "🥑"
+let myEmojiAvoUnicode = "\u{1F951}"
+ myEmojiAvo == myEmojiAvoUnicode
+ // Output "🥑" "🥑" true
+ 
+ let myCharacter = "%"
+ let myCharacterUnicode = "\u{0025}"
+ myCharacter == myCharacterUnicode
+ // Output "%" "%" true
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+______________________________________________
+Answer:
+Alex says do just 1 of 9, 10, or 11
+
+print("\u{0048} \u{0045} \u{004C} \u{004C} \u{004F} \u{0020} \u{0057} \u{004F} \u{0052} \u{004C} \u{0044} \u{0021}")
+
+// Output H E L L O   W O R L D !
 
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
+________________________________________
+See # 9
 
 ***
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
+________________________________________
+See # 9
 
 ***
 ## Question 12
@@ -125,6 +235,12 @@ Input:
 
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
+____________________________________________________
+Answer:
+var aString = "Replace the letter e with *"
+var replacedString = "R\u{002A}plac\u{002A} th\u{002A} l\u{002A}tt\u{002A}r \u{002A} with \u{002A}"
+print(replacedString)
+// Output R*plac* th* l*tt*r * with *
 
 ***
 ## Question 15
@@ -169,6 +285,37 @@ be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
 ```
+____________________________________
+Answer:
+var geographicLocation: String = "Portland"
+var adjective1: String = "cold"
+var pluralNoun1: String = "air"
+var adjective2: String = "high"
+var pluralNoun2: String = "thunderstorms"
+var number1: Int = 20
+var number2: Int = 55
+var articleOfClothing: String = "coat"
+
+var madLib = """
+Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing).
+"""
+
+print(madLib)
+// Output: Here is tomorrow's weather report for Portland
+and vicinity. Early tomorrow, a cold-front will
+collide with a mass of hot air moving from the
+north. This means we can expect high winds and
+occasional thunderstorms by late afternoon. Wind velocity will
+be 20 miles an hour, and the high temperature should
+be around 55 degrees. So, if you're going out, you had
+better plan on wearing your coat.
 
 ***
 
