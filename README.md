@@ -124,7 +124,14 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
-
+var dash = "---------------------"
+let flower = "| \u{2698} |"
+let flowerRow = "\(flower)\(flower)\(flower)\(flower)\(flower)\(flower)\(flower)\(flower)"
+print(dash, terminator: " ")
+print()
+for _ in 0...4 {
+    print(flower)
+}
 ***
 ## Question 13
 
