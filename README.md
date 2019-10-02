@@ -96,8 +96,10 @@ for (index, element) in str1.enumerated() {
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 ```swift
-var str2:Character = "B"
-var str3 = String(str2)
+let char:Character = "a"
+let str = String(char)
+
+print(type(of: char))
 
 ```
 
@@ -212,6 +214,25 @@ Chess Board:
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
 
+My code:
+```swift
+for row in 0...7 {
+    if (row == 0){
+    print("\u{2656} \u{2658} \u{2657} \u{2655} \u{2654} \u{2657} \u{2658} \u{2656}")
+    } else if (row == 7) {
+    print("\u{265c} \u{265e} \u{265d} \u{265b} \u{265a} \u{265d} \u{265e} \u{265c}")
+    }
+    for _ in 0...7 {
+        if (row == 1) {
+            print("\u{2659}", terminator: " ")
+        } else if (row == 6) {
+            print("\u{265F}", terminator: " ")
+        }
+    }
+    print()
+}
+```
+
 ***
 ## Question 14
 
@@ -230,6 +251,13 @@ Input:
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
 
+My code:
+```swift
+var aString = "Replace the letter e with *"
+var replacedString = replacedString.replacingOccurance(of: "e", with "*")
+print(replacedString)
+```
+
 ***
 ## Question 15
 
@@ -240,6 +268,12 @@ var aString = "this string has 29 characters"
 var reverse = ""
 
 // Your code here
+```
+
+```swift
+var aString1 = "this string has 29 characters"
+var reverse = String(aString1.reversed())
+print(reverse)
 ```
 
 Example:
@@ -272,6 +306,22 @@ occasional \() by late afternoon. Wind velocity will
 be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
+```
+
+My code:
+```swift
+var geographicLocation: String = "New York"
+var adjective1: String = "cold"
+var pluralNoun1: String = "winds"
+var adjective2: String = "warm"
+var pluralNoun2: String = "storms"
+var number1: Int = 23
+var number2: Int = 60
+var articleOfClothing: String = "raincoat"
+
+var madLib = "Here is tomorrow's weather report for \(geographicLocation) and vicinity. Early tomorrow, a \(adjective1)-front will collide with a mass of hot \(pluralNoun1) moving from the north. This means we can expect \(adjective2) winds and occasional \(pluralNoun2) by late afternoon. Wind velocity will be \(number1) miles an hour, and the high temperature should be around \(number2) degrees. So, if you're going out, you had better plan on wearing your \(articleOfClothing)."
+
+print(madLib)
 ```
 
 ***
