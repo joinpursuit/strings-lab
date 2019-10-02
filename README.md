@@ -102,7 +102,7 @@ print(myStringSeven[lastLetter])
 ```
 
 ***
-## Question 6 // Start at index 1 or 2?
+## Question 6 
 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
