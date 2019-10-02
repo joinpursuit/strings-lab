@@ -14,20 +14,74 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+```
+Question # 1 Answer
+
+var numString = ""
+
+for i in 1...10{
+ numString += string(i)
+}
+
+print(numString)
+```
+
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+
+```
+Question # 2 Answer
+
+var numberString = ""
+
+for i in 5...51{
+    if( i % 2 == 0){
+        numberString += String(i)
+        numberString += " "
+    }
+}
+
+print(numberString)
+```
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+```
+Question # 3 Answer
+
+var numberString = ""
+
+for i in 1...60{
+    if( i % 10 == 4){
+        numberString += String(i)
+        numberString += " "
+    }
+}
+
+print(numberString)
+```
+
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+
+```
+Question # 4 Answer
+
+var numberString = "Hello World!"
+
+for char in numberString{
+    print(char)
+}
+
+```
+
 
 ***
 ## Question 5
@@ -36,37 +90,137 @@ Print out the last character in the string below.  You cannot use the Character 
 
 `let myStringSeven = "Hello world!"`
 
+```
+Question # 5 Answer
+
+let myStringSeven = "Hello world!"
+
+var lastLetter = myStringSeven.index(before: myStringSeven.endIndex)
+
+print(myStringSeven[lastLetter])
+
+```
+
 ***
-## Question 6
+## Question 6 
 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+```
+Question #6 Answer
+
+var message = "Some string"
+
+switch message {
+    case message where message.count % 2 == 0:
+        for letter in message{
+            print(letter, terminator:" ")
+        }
+    default:
+    for (index, letter) in message.enumerated() where index % 2 == 0 {
+        print(letter, terminator:" ")
+    }
+}
+
+```
+
 ***
-## Question 7
+## Question 7 
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
+
+```
+Question #7 Answer
+
+let characterVariable: Character = "a"
+var stringVariable: String = String(characterVariable)
+
+print(type(of: characterVariable))
+print(type(of: stringVariable))
+```
 
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
 
+```
+Question #8 Answer
+
+var firstPairVarA = "\u{00F1}"
+var firstPairVarB = "\u{006E}\u{0303}"
+
+if(firstPairVarA == firstPairVarB){
+    print("\(firstPairVarA) is canonically equivalent to \(firstPairVarB).")
+}
+
+var secondPairVarA = "\u{0100}"
+var secondPairVarB = "\u{0041}\u{0304}"
+
+if(secondPairVarA == secondPairVarB){
+    print("\(secondPairVarA) is canonically equivalent to \(secondPairVarB).")
+}
+var thirdPairVarA = "\u{00E3}"
+var thirdPairVarB = "\u{0061}\u{0303}"
+
+if(thirdPairVarA == thirdPairVarB){
+    print("\(thirdPairVarA) is canonically equivalent to \(thirdPairVarB).")
+}
+var fourthPairVarA = "\u{00D5}"
+var fourthPairVarB = "\u{004F}\u{0303}"
+
+if(fourthPairVarA == fourthPairVarB){
+    print("\(fourthPairVarA) is canonically equivalent to \(fourthPairVarB).")
+}
+var fifthPairVarA = "\u{00FA}"
+var fifthPairVarB = "\u{0075}\u{0301}"
+
+if(fifthPairVarA == fifthPairVarB){
+    print("\(fifthPairVarA) is canonically equivalent to \(fifthPairVarB).")
+}
+```
+
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+
+```
+Question #9 Answer
+
+let greeting = "\u{0048}\u{0045}\u{004C}\u{004C}\u{004F}\u{0020}\u{0057}\u{004F}\u{0052}\u{004C}\u{0044}\u{0021}"
+
+print(greeting, terminator:"")
+
+```
 
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
 
+```
+Question #10 Answer
+
+var myName = "\u{0043}\u{0061}\u{006D}\u{0065}\u{0072}\u{006F}\u{006E}"
+
+print("My name is: \(myName)", terminator: "")
+```
+
 ***
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
+
+```
+Question #11 Answer
+
+var japanglish = "\u{30D8}\u{30ED}\u{0020}\u{30EF}\u{30EB}\u{30C9}"
+
+print("Hello world in Japanese is \(japanglish)", terminator: "")
+```
 
 ***
 ## Question 12
@@ -91,6 +245,38 @@ Flower Box:
 - - - - - - - - - - -
 ```
 
+```
+Question #12 Answer
+
+var flower = "\u{2698}"
+
+print("Flower Box:")
+
+for i in 1...9{
+    switch i {
+        case 1:
+            for _ in 1...11{
+                    print("-",terminator: " ")
+            }
+            print()
+        case 2...8:
+            for j in 1...11{
+                if(j % 2 == 1){
+                    print("|", terminator:" ")
+                } else {
+                    print(flower,terminator:" ")
+                }
+            }
+            print()
+        default:
+            for _ in 1...11{
+                    print("-",terminator: " ")
+            }
+            print()
+    }
+}
+```
+
 ***
 ## Question 13
 
@@ -106,6 +292,88 @@ Chess Board:
 
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+```
+
+```
+Question #13 Answer
+
+let whiteKing = "\u{2654}"
+let whiteQueen = "\u{2655}"
+let whiteRook = "\u{2656}"
+let whiteBishop = "\u{2657}"
+let whiteKnight = "\u{2658}"
+let whitePawn = "\u{2659}"
+
+let blackKing = "\u{265A}"
+let blackQueen = "\u{265B}"
+let blackRook = "\u{265C}"
+let blackBishop = "\u{265D}"
+let blackKnight = "\u{265E}"
+let blackPawn = "\u{265F}"
+
+print("Chess Board:")
+
+for i in 1...8{
+    switch i{
+        case 1:
+            for j in 1...8{
+                switch j {
+                    case 1:
+                    print(whiteRook,terminator:" ")
+                    case 2:
+                    print(whiteKnight,terminator:" ")
+                    case 3:
+                    print(whiteBishop,terminator:" ")
+                    case 4:
+                    print(whiteKing,terminator:" ")
+                    case 5:
+                    print(whiteQueen,terminator:" ")
+                    case 6:
+                    print(whiteBishop,terminator:" ")
+                    case 7:
+                    print(whiteKnight,terminator:" ")
+                    default:
+                    print(whiteRook,terminator:" ")
+                }
+            }
+            print()
+        case 2:
+            for _ in 1...8{
+                print(whitePawn, terminator:" ")
+            }
+            print()
+        case 3...6:
+            print()
+        case 7:
+            for _ in 1...8{
+                print(blackPawn, terminator:" ")
+            }
+            print()
+        default:
+            for j in 1...8{
+                switch j {
+                case 1:
+                    print(blackRook,terminator:" ")
+                case 2:
+                    print(blackKnight,terminator:" ")
+                case 3:
+                    print(blackBishop,terminator:" ")
+                case 4:
+                    print(blackKing,terminator:" ")
+                case 5:
+                    print(blackQueen,terminator:" ")
+                case 6:
+                    print(blackBishop,terminator:" ")
+                case 7:
+                    print(blackKnight,terminator:" ")
+                default:
+                    print(blackRook,terminator:" ")
+                }
+            }
+            print()
+    }
+}
+
 ```
 
 ***
@@ -126,6 +394,27 @@ Input:
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
 
+```
+Question #14 Answer
+
+var aString = "Replace the letter e with *"
+var startingPoint = aString.startIndex
+var endPoint = aString.index(before: aString.endIndex)
+var currentIndex = startingPoint
+var off = 0
+
+while currentIndex < endPoint {
+    
+    currentIndex = aString.index(startingPoint, offsetBy: off)
+    if(aString[currentIndex] == "\u{0065}"){
+        aString.insert("\u{002A}",at: currentIndex)
+        aString.remove(at:aString.index(after:currentIndex))
+    }
+    off += 1
+}
+```
+
+
 ***
 ## Question 15
 
@@ -138,12 +427,43 @@ var reverse = ""
 // Your code here
 ```
 
+
 Example:
 Input:
 `var aString = "Hello"`
 
 Output:
 `"olleH"`
+
+```
+Question #15 Answer
+
+var stringToReverse = "This is the string to reverse"
+var reverse = stringToReverse
+let startPoint = stringToReverse.startIndex
+let endPoint = stringToReverse.index(before: stringToReverse.endIndex)
+var tempStart: Character
+var tempEnd: Character
+var fromEnd = -1
+var fromBeginning = 1
+var nextLeft = startPoint
+var nextRight = endPoint
+
+while(nextLeft <= nextRight){
+   
+    tempStart = stringToReverse[nextLeft]
+    tempEnd = stringToReverse[nextRight]
+    reverse.insert(tempEnd,at: nextLeft)
+    reverse.remove(at:reverse.index(after:nextLeft))
+    reverse.insert(tempStart, at: nextRight)
+    reverse.remove(at:reverse.index(after:nextRight))
+    nextLeft = reverse.index(startPoint, offsetBy: fromBeginning)
+    nextRight = reverse.index(endPoint,offsetBy: fromEnd)
+    fromEnd -= 1
+    fromBeginning += 1
+}
+
+```
 
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
@@ -168,6 +488,32 @@ occasional \() by late afternoon. Wind velocity will
 be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
+```
+```
+Question #16 Answer
+
+var geographicLocation: String = "the moon"
+var adjective1: String = "spicy"
+var pluralNoun1: String = "oxen"
+var adjective2: String = "melancholy"
+var pluralNoun2: String = "humans"
+var number1: Int = 502
+var number2: Int = 9
+var articleOfClothing: String = "hat"
+
+var madLib = """
+Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing).
+"""
+
+print(madLib)
+
 ```
 
 ***
