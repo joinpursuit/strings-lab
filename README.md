@@ -226,7 +226,24 @@ Chess Board:
 ```
 Answer
 ```swift
+var whitePieces = "\u{2656} \u{2658} \u{2657} \u{2655} \u{2654} \u{2657} \u{2658} \u{2656}"
+var blackPieces = "\u{265C} \u{265E} \u{265D} \u{265B} \u{265A} \u{265D} \u{265E} \u{265C}"
+var whitePone = "\u{2659}"
+var blackPone = "\u{265F}"
 
+print(whitePieces)
+for _ in 0..<8 {
+    print(whitePone, terminator: " ")
+}
+print()
+for _ in 0..<4 {
+    print()
+}
+for _ in 0..<8 {
+    print(blackPone, terminator: " ")
+}
+print()
+print(blackPieces, terminator: " ")
 ```
 ***
 ## Question 14
