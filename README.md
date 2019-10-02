@@ -13,21 +13,80 @@
 
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
-
+______________________________________________________
+Answer:
+var numString = ""
+for num in 1...10 {
+    numString += String(num)
+}
+print(numString)
+// Output 12345678910
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
 
+_____________________________________________________________________
+Answer:
+var numString = ""
+for num in 5...51 where num % 2 == 0 {
+    numString += String(num)
+}
+  print(numString)
+  
+  OR
+  
+  var numString = ""
+  for num in 5...51 {
+      if num % 2 == 0 {
+      numString += String(num)
+  }
+  }
+    print(numString)
+    
+// Output 68101214161820222426283032343638404244464850
+
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
+______________________________________________________________________________
+Answer:
+
+var numString = ""
+for num in 1...60 {
+    if num % 10 == 4 {
+    numString += String(num)
+}
+}
+  print(numString)
+  
+// Output 41424344454
 
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+______________________________________________
+let myString = "Hello world!"
+
+for (index, char) in myString.enumerated() {
+    print(char)
+}
+// Output 
+H
+e
+l
+l
+o
+
+w
+o
+r
+l
+d
+!
+
 
 ***
 ## Question 5
@@ -35,6 +94,17 @@ Print each character in the string `"Hello world!"`
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+_______________________________________________
+Answer:
+Was able to solve just following Alex notes through the class. Dont know how to remember it.
+
+let myStringSeven = "Hello world!"
+let endIndex = myStringSeven.endIndex
+let lastCharacterIndex = myStringSeven.index(before: endIndex)
+let lastCharacter = myStringSeven[lastCharacterIndex]
+print(lastCharacter)
+
+// Output !
 
 ***
 ## Question 6
@@ -42,31 +112,93 @@ Print out the last character in the string below.  You cannot use the Character 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
+______________________________________________________
+Answer:  
+let message = "Bad boy" // 7 characters including space
+print("There are \(message.count) caracters in message")
 
+switch message {
+case message where message.count % 2 == 0:
+    for char in message {
+        print(char, terminator: " ")
+    }
+default:
+    for (index, char) in message.enumerated() where index % 2 == 1 {
+        print(char, terminator: " ")
+}
+}
+// Prints "a   o"
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
+_________________________________________________________
+Answer: 
+let char: Character = "a"
+// initializing s String from a Character
+let str = String(char)
+
+print(type(of: char))
+print(type(of: str))
+
+// Prints: Character
+               String
 
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+____________________________
+Answer:
+let myCharacter = "A"
+let myCharacterUnicode = "\u{0041}"
+myCharacter == myCharacterUnicode
+// Outcome "A" "A" true
 
+let myCharacter = "U"
+let myCharacterUnicode = "\u{0055}"
+myCharacter == myCharacterUnicode
+// Outcome "U" "U" true
+
+let myApostrophe = "'"
+let myApostropUnicode = "\u{0027}"
+myApostrophe == myApostropUnicode
+// Outcome "''" "''" true
+
+let myEmojiAvo = "🥑"
+let myEmojiAvoUnicode = "\u{1F951}"
+ myEmojiAvo == myEmojiAvoUnicode
+ // Output "🥑" "🥑" true
+ 
+ let myCharacter = "%"
+ let myCharacterUnicode = "\u{0025}"
+ myCharacter == myCharacterUnicode
+ // Output "%" "%" true
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+______________________________________________
+Answer:
+Alex says do just 1 of 9, 10, or 11
+
+print("\u{0048} \u{0045} \u{004C} \u{004C} \u{004F} \u{0020} \u{0057} \u{004F} \u{0052} \u{004C} \u{0044} \u{0021}")
+
+// Output H E L L O   W O R L D !
 
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
+________________________________________
+See # 9
 
 ***
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
+________________________________________
+See # 9
 
 ***
 ## Question 12
@@ -90,6 +222,33 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
+________________________
+Answer:
+print("""
+Flower Box:
+- - - - - - - - - - -
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+- - - - - - - - - - -
+""")
+// Prints
+Flower Box:
+- - - - - - - - - - -
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+- - - - - - - - - - -
+
+
 
 ***
 ## Question 13
@@ -107,6 +266,44 @@ Chess Board:
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
+_______________________________
+let blackChessPawn = "\u{265F}"
+let blackChessRook = "\u{265C}"
+let blackChessKnight = "\u{265E}"
+let blackChessBishop = "\u{265D}"
+let blackChessQueen = "\u{265B}"
+let blackChessKing = "\u{265A}"
+let rookWhite = "\u{2656}"
+let knightWhite = "\u{2658}"
+let bishopWhite = "\u{2657}"
+let queenWhite = "\u{2655}"
+let kingWhite = "\u{2654}"
+let pawnWhite = "\u{2659}"
+
+
+let chessBoard = ("""
+\(rookWhite) \(knightWhite) \(bishopWhite) \(queenWhite) \(kingWhite) \(bishopWhite) \(knightWhite) \(rookWhite)
+\(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite)
+    
+    
+    
+    
+    
+\(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn)
+\(blackChessRook) \(blackChessKnight) \(blackChessBishop) \(blackChessQueen) \(blackChessKing) \(blackChessBishop) \(blackChessKnight) \(blackChessRook)
+""")
+
+print(chessBoard)
+// Prints
+♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
+♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙
+    
+    
+    
+    
+    
+♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
+♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 
 ***
 ## Question 14
@@ -125,7 +322,13 @@ Input:
 
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
+____________________________________________
+Answer:
+var aString = "Replace the letter e with *"
+aString = aString.replacingOccurrences(of: "e", with: "*")
+print(aString)
 
+// Prints "R*plac* th* l*tt*r * with *"
 ***
 ## Question 15
 
@@ -144,6 +347,11 @@ Input:
 
 Output:
 `"olleH"`
+___________________________
+Answer: var aString = "this string has 29 characters"
+var reverse = String(aString.reversed())
+print(reverse)
+// Prints "sretcarahc 92 sah gnirts siht"
 
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
@@ -169,6 +377,37 @@ be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
 ```
+____________________________________
+Answer:
+var geographicLocation: String = "Portland"
+var adjective1: String = "cold"
+var pluralNoun1: String = "air"
+var adjective2: String = "high"
+var pluralNoun2: String = "thunderstorms"
+var number1: Int = 20
+var number2: Int = 55
+var articleOfClothing: String = "coat"
+
+var madLib = """
+Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing).
+"""
+
+print(madLib)
+// Output: Here is tomorrow's weather report for Portland
+and vicinity. Early tomorrow, a cold-front will
+collide with a mass of hot air moving from the
+north. This means we can expect high winds and
+occasional thunderstorms by late afternoon. Wind velocity will
+be 20 miles an hour, and the high temperature should
+be around 55 degrees. So, if you're going out, you had
+better plan on wearing your coat.
 
 ***
 
