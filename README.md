@@ -14,20 +14,51 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+//
+var numString = " "
+for num in 1...10 {
+    numString += String(num)
+}
+print(numString)
+
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+
+//
+var numString = " "
+for num in 5...51 {
+    if num % 2 == 0 {
+    numString += String(num)
+}
+}
+print(numString)
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+//
+var numString = " "
+for num in 1...60 {
+    if num % 10 == 4 {
+    numString += String(num)
+}
+}
+print(numString)
+
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+
+//
+var myString = "Hello World"
+for char in myString {
+    print(char)
+}
 
 ***
 ## Question 5
@@ -36,22 +67,63 @@ Print out the last character in the string below.  You cannot use the Character 
 
 `let myStringSeven = "Hello world!"`
 
+//
+let myStringSeven = "Hello world!"
+let endIndex = myStringSeven.endIndex
+let lastCharacterIndex = myStringSeven.index(before: endIndex)
+let lastCharacter =
+myStringSeven[lastCharacterIndex]
+print("last character in \(myStringSeven) is", lastCharacter)
+
+
 ***
 ## Question 6
 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
-
+//
+let message = "Good afternoon!"
+switch message {
+case message where message.count % 2 == 0: 
+    for char in message {
+        print(char, terminator: " ")
+    }
+default:
+    for (index, char) in message.enumerated() where index % 2 == 1 { 
+        print(char, terminator: " ")
+    }
+}
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
-
+//
+let char: Character = "L"
+let str = String(char)
+print(type(of: char))
+print(type(of: str))
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+//
+let unicodeL = "\u{004C}"
+let characterL = "L"
+unicodeL == characterL
+let unicodeU = "\u{0055}"
+let characterU = "U"
+unicodeU == characterU
+let unicodeB = "\u{0042}"
+let characterB = "B"
+unicodeB == characterB
+let unicodeA = "\u{0041}"
+let characterA = "A"
+unicodeA == characterA
+let unicodeK = "\u{004B}"
+let characterK = "K"
+unicodeK == characterK
+
 
 ***
 ## Question 9
@@ -62,6 +134,8 @@ Build five pairs of **canonically equivalent** strings, the first of each being 
 ## Question 10
 
 **Using only Unicode**, print out your name.
+//
+let myName = "\u{004C}\u{0075}\u{0062}\u{0061}"
 
 ***
 ## Question 11
@@ -90,6 +164,19 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
+//
+print("""
+Flower Box:
+- - - - - - - - - - -
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+- - - - - - - - - - -
+""")
 
 ***
 ## Question 13
@@ -107,6 +194,31 @@ Chess Board:
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
+//
+let rookWhite = "\u{2656}"
+let knightWhite = "\u{2658}"
+let bishopWhite = "\u{2657}"
+let queenWhite = "\u{2655}"
+let kingWhite = "\u{2654}"
+let pawnWhite = "\u{2659}"
+let blackChessPawn = "\u{265F}"
+let blackChessRook = "\u{265C}"
+let blackChessKnight = "\u{265E}"
+let blackChessBishop = "\u{265D}"
+let blackChessQueen = "\u{265B}"
+let blackChessKing = "\u{265A}"
+
+let chessBoard = """
+Chess Board:
+\(rookWhite) \(knightWhite) \(bishopWhite) \(queenWhite) \(kingWhite) \(bishopWhite) \(knightWhite) \(rookWhite)
+\(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite)
+
+
+\(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn)
+\(blackChessRook) \(blackChessKnight) \(blackChessBishop) \(blackChessQueen) \(blackChessKing) \(blackChessBishop) \(blackChessKnight) \(blackChessRook)
+"""
+print(chessBoard)
+
 
 ***
 ## Question 14
@@ -117,7 +229,11 @@ You are given a string stored in the variable `aString`. Create new string named
 var aString = "Replace the letter e with *"
 // Your code here
  ```
-
+ //
+ var aString = "Replace the letter e with *"
+ aString = aString.replacingOccurrences(of: "e", with: "*")
+ print(aString)
+//
 Example:
 
 Input:
@@ -137,6 +253,10 @@ var reverse = ""
 
 // Your code here
 ```
+//
+var aString = "this string has 29 characters"
+var reverse = String(aString.reversed())
+print(reverse)
 
 Example:
 Input:
@@ -169,7 +289,27 @@ be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
 ```
+//
+var geographicLocation: String = "Chelyabinsk"
+var adjective1: String = "cold"
+var pluralNoun1: String = "winds"
+var adjective2: String = "strong"
+var pluralNoun2: String = "hurricanes"
+var number1: Int = 100
+var number2: Int = 120
+var articleOfClothing: String = "swimming suit"
 
+var madLib = """
+Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing).
+"""
+print(madLib)
 ***
 
 # Bonus :)
