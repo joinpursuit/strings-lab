@@ -14,20 +14,52 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+//  Answers:
+var oneToTen = ""
+
+for num in 1...10   {
+oneToTen += String(num) + " "
+}
+
+print(oneToTen)
+
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+
+// Answer:
+var fiveToFittyOne = ""
+
+for num in 5...51 where num % 2 == 0  {
+fiveToFittyOne += String(num) + " "
+}
+
+print(fiveToFittyOne)
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+// Answer:
+var oneToSixty = ""
+
+for num in 1...60 where num % 10 == 4  {
+oneToSixty += String(num) + " "
+}
+
+print(oneToSixty)
+
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+
+//  Answer: 
+for char in "Hello world!"  {
+print(char)
+}
 
 ***
 ## Question 5
@@ -36,6 +68,9 @@ Print out the last character in the string below.  You cannot use the Character 
 
 `let myStringSeven = "Hello world!"`
 
+//  Answers :
+print(myStringSeven[myStringSeven.index(before : myStringSeven.endIndex)])
+
 ***
 ## Question 6
 
@@ -43,15 +78,79 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+//  Answers:
+var testStrs = "Not Even!"
+var strCompare = testStrs.count % 2
+print(strCompare)
+
+switch strCompare   {
+case 0:
+    for char in testStrs {
+        print(char)
+    }
+case 1:
+    for (index, testStr) in testStrs.enumerated()   {
+        if index % 2 == 0   {
+            print(testStr)
+        }
+    }
+ default:
+ print()
+}
+
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 
+//  Answers:
+var j : Character = "j"
+let str = "\u{006a}"
+print(str)
+
+//
+
+var chara:Character = "j"
+var str2 = String(chara)
+
+print(type(of: str2))
+print(type(of: chara))
+
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+
+//  Answers:
+let aChar = "\u{0061}" + "\u{0301}"
+let aCharSingle = "\u{00e1}"
+print(aChar)
+print(aCharSingle)
+print(aChar == aCharSingle)
+
+let eChar = "\u{0065}" + "\u{0301}"
+let eCharSingle = "\u{00e9}"
+print(eChar)
+print(eCharSingle)
+print(eChar == eCharSingle)
+
+let iChar = "\u{0069}" + "\u{0301}"
+let iCharSingle = "\u{00ed}"
+print(iChar)
+print(iCharSingle)
+print(iChar == iCharSingle)
+
+let oChar = "\u{006f}" + "\u{0301}"
+let oCharSingle = "\u{00f3}"
+print(oChar)
+print(oCharSingle)
+print(oChar == oCharSingle)
+
+let uChar = "\u{0075}" + "\u{0301}"
+let uCharSingle = "\u{00fa}"
+print(uChar)
+print(uCharSingle)
+print(uChar == uCharSingle)
 
 ***
 ## Question 9
@@ -62,6 +161,10 @@ Build five pairs of **canonically equivalent** strings, the first of each being 
 ## Question 10
 
 **Using only Unicode**, print out your name.
+
+//  Answers:
+let name = "\u{006A}" + "\u{0075}" + "\u{0061}" + "\u{006e}"
+print(name)
 
 ***
 ## Question 11
@@ -90,6 +193,9 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
+
+//  Answers:
+
 
 ***
 ## Question 13
