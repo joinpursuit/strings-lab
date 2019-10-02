@@ -87,10 +87,32 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+```swift
+let name = "Ameni Alsaydi"
+let stringLength = name.count
+print(stringLength)
+
+switch name {
+case name where stringLength % 2 == 0:
+    print(name)
+default:
+    for (index, char) in name.enumerated() where index % 2 == 1 {
+        print (char, terminator: " " )
+    }
+}
+```
+
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
+
+```swift
+
+let myString: Character = "a"
+
+print(type(of: myString))
+```
 
 ***
 ## Question 8
@@ -236,39 +258,41 @@ Output:
 
 ```swift
 var bString = "Hello"
-var empty = ""
+var reverse = ""
 
 for _ in bString {
     let lastIndex = bString.index(before: bString.endIndex)
-    empty += String(bString[lastIndex])
+    reverse += String(bString[lastIndex])
     bString.removeLast()
 }
 
-print(empty)
+print(reverse)
 ```
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
 
 ```swift
 
+var geographicLocation: String = "Manhattan"
+var adjective1: String = "deleicous"
+var pluralNoun1: String = "laptops"
+var adjective2: String = "smelly"
+var pluralNoun2: String = "chicken"
+var number1: Int = 56
+var number2: Int = 177273
+var articleOfClothing: String = "pants"
 
-var geographicLocation: String
-var adjective1: String
-var pluralNoun1: String
-var adjective2: String
-var pluralNoun2: String
-var number1: Int
-var number2: Int
-var articleOfClothing: String
+var madLib = """
+Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing)
+"""
 
-var madLib = "Here is tomorrow's weather report for \()
-and vicinity. Early tomorrow, a \()-front will
-collide with a mass of hot \() moving from the
-north. This means we can expect \() winds and
-occasional \() by late afternoon. Wind velocity will
-be \() miles an hour, and the high temperature should
-be around \() degrees. So, if you're going out, you had
-better plan on wearing your \()".
 ```
 
 ***
