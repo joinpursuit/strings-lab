@@ -81,22 +81,19 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 ```
-let words = "odd"
-var counter = 0
-switch true {
-case words.count % 2 == 0:
-    for char in words {
-        print(char)
+let message1 = "God"
+message1.count  // 4
+switch message1 {
+case message1 where message1.count % 2 == 0:
+    for char in message1 {
+        print(char, terminator: " ")
     }
 default:
-    for char in words {
-        if counter % 2 == 0 {
-            print(char)
-            counter += 1
-        } else {
-            counter += 1
-            }
+    for (index, char) in message1.enumerated()
+        where index % 2 == 0 {
+    print(char, terminator: " ")
     }
+}
 
 
 
@@ -177,6 +174,27 @@ Print the below flower box using the following information.
 - Hint: It may be useful to try printing out a box of just one character to start then work your way from there.
 
 ```swift
+
+var N = 6
+var flowers = " \u{2698} "
+var borders = "-"
+var rows = "|"
+
+for _ in 1...11 {
+    print(borders, terminator: " ")
+}
+print()
+ for _ in 1...6 {
+    for _ in 1...5 {
+        print(rows , terminator: flowers)
+    }
+    print(rows)
+    }
+for _ in 1...11 {
+    print(borders, terminator: " ")
+}
+
+
 Flower Box:
 - - - - - - - - - - -
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
@@ -205,6 +223,36 @@ Chess Board:
 
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+
+let whiteRook = "\u{2656}"
+let whiteKnight = "\u{2658}"
+let whiteBishop = "\u{2657}"
+let whiteQueen = "\u{2655}"
+let whiteKing = "\u{2654}"
+let whitePawn = "\u{2659}"
+
+let blackRook = "\u{265C}"
+let blackKnight = "\u{265E}"
+let blackBishop = "\u{265D}"
+let blackKing = "\u{265A}"
+let blackQueen = "\u{265B}"
+let blackPawn = "\u{265F}"
+
+var whitePawns = String(repeating: whitePawn, count: 8)
+var blackPawns = String(repeating: blackPawn, count: 8)
+var whitePieces = whiteRook+whiteKnight+whiteBishop+whiteQueen+whiteKing+whiteBishop+whiteKnight+whiteRook
+var blackPieces = blackRook+blackKnight+blackBishop+blackQueen+blackKing+blackBishop+blackKnight+blackRook
+
+var chessBoard = """
+\(whitePieces)
+\(whitePawns)
+
+
+
+
+\(blackPawns)
+\(blackPieces)
+"""
 ```
 
 ***
@@ -214,8 +262,16 @@ You are given a string stored in the variable `aString`. Create new string named
 
 ```swift
 var aString = "Replace the letter e with *"
-// Your code here
- ```
+var replacedString = ""
+for char in aString {     
+    if char == "e" {
+       replacedString += "*"
+    } else {
+       replacedString += String(char)
+    }
+}
+print(replacedString)
+```
 
 Example:
 
@@ -232,9 +288,10 @@ You are given a string stored in variable `aString`. Create a new string called 
 
 ```swift
 var aString = "this string has 29 characters"
-var reverse = ""
+var reverse = String(aString.reversed())
+print(reverse)
 
-// Your code here
+
 ```
 
 Example:
@@ -250,23 +307,26 @@ Output:
 ```swift
 
 
-var geographicLocation: String
-var adjective1: String
-var pluralNoun1: String
-var adjective2: String
-var pluralNoun2: String
-var number1: Int
-var number2: Int
-var articleOfClothing: String
+var geographicLocation: Bathroom
+var adjective1: Strong
+var pluralNoun1: Bikes
+var adjective2: Weak
+var pluralNoun2: Hats
+var number1: 1
+var number2: 2
+var articleOfClothing: Jacket
 
-var madLib = "Here is tomorrow's weather report for \()
-and vicinity. Early tomorrow, a \()-front will
-collide with a mass of hot \() moving from the
-north. This means we can expect \() winds and
-occasional \() by late afternoon. Wind velocity will
-be \() miles an hour, and the high temperature should
-be around \() degrees. So, if you're going out, you had
-better plan on wearing your \()".
+var madLib = "Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(objective-1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing)".
+
+
+
 ```
 
 ***
