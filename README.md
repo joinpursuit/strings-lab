@@ -118,6 +118,16 @@ print(type(of: myString))
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+```swift
+let regName = "ameni"
+let uniCodeName = ("\u{0061}\u{006D}\u{0065}\u{006E}\u{0069}")
+
+if regName == uniCodeName {
+    print("\(regName) and \(uniCodeName) are equivalent")
+} else {
+    print("They are not equivalent")
+}
+```
 
 ***
 ## Question 9
