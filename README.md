@@ -265,6 +265,9 @@ Expected values:
 
 Answer
 ```swift
+var aString = "Replace the letter e with *"
+
+var replacedString = aString.replacingOccurrences(of: "e", with: "*")
 
 ```
 ***
@@ -289,7 +292,9 @@ Output:
 
 Answer
 ```swift
+var aString = "this string has 29 characters"
 
+let reversed = String(aString.reversed())
 ```
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
@@ -317,7 +322,25 @@ better plan on wearing your \()".
 ```
 Answer
 ```swift
+var geographicLocation: String = "NYC"
+var adjective1: String = "cloud"
+var pluralNoun1: String = "storm"
+var adjective2: String = "strong"
+var pluralNoun2: String = "rain"
+var number1: Int = 22
+var number2: Int = 96
+var articleOfClothing: String = "water proof clothing"
 
+var madLib = """
+Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing)
+"""
 ```
 ***
 
