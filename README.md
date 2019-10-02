@@ -113,15 +113,37 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 ______________________________________________________
-Answer:  will review on Oct 2
-where
+Answer:  
+let message = "Bad boy" // 7 characters including space
+print("There are \(message.count) caracters in message")
 
+switch message {
+case message where message.count % 2 == 0:
+    for char in message {
+        print(char, terminator: " ")
+    }
+default:
+    for (index, char) in message.enumerated() where index % 2 == 1 {
+        print(char, terminator: " ")
+}
+}
+// Prints "a   o"
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 _________________________________________________________
-Answer: will review on Oct 2
+Answer: 
+let char: Character = "a"
+// initializing s String from a Character
+let str = String(char)
+
+print(type(of: char))
+print(type(of: str))
+
+// Prints: Character
+               String
+
 ***
 ## Question 8
 
@@ -200,6 +222,33 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
+________________________
+Answer:
+print("""
+Flower Box:
+- - - - - - - - - - -
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+| \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
+- - - - - - - - - - -
+""")
+// Prints
+Flower Box:
+- - - - - - - - - - -
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+| ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
+- - - - - - - - - - -
+
+
 
 ***
 ## Question 13
@@ -217,6 +266,44 @@ Chess Board:
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
+_______________________________
+let blackChessPawn = "\u{265F}"
+let blackChessRook = "\u{265C}"
+let blackChessKnight = "\u{265E}"
+let blackChessBishop = "\u{265D}"
+let blackChessQueen = "\u{265B}"
+let blackChessKing = "\u{265A}"
+let rookWhite = "\u{2656}"
+let knightWhite = "\u{2658}"
+let bishopWhite = "\u{2657}"
+let queenWhite = "\u{2655}"
+let kingWhite = "\u{2654}"
+let pawnWhite = "\u{2659}"
+
+
+let chessBoard = ("""
+\(rookWhite) \(knightWhite) \(bishopWhite) \(queenWhite) \(kingWhite) \(bishopWhite) \(knightWhite) \(rookWhite)
+\(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite) \(pawnWhite)
+    
+    
+    
+    
+    
+\(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn) \(blackChessPawn)
+\(blackChessRook) \(blackChessKnight) \(blackChessBishop) \(blackChessQueen) \(blackChessKing) \(blackChessBishop) \(blackChessKnight) \(blackChessRook)
+""")
+
+print(chessBoard)
+// Prints
+♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
+♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙
+    
+    
+    
+    
+    
+♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
+♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 
 ***
 ## Question 14
@@ -235,13 +322,13 @@ Input:
 
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
-____________________________________________________
+____________________________________________
 Answer:
 var aString = "Replace the letter e with *"
-var replacedString = "R\u{002A}plac\u{002A} th\u{002A} l\u{002A}tt\u{002A}r \u{002A} with \u{002A}"
-print(replacedString)
-// Output R*plac* th* l*tt*r * with *
+aString = aString.replacingOccurrences(of: "e", with: "*")
+print(aString)
 
+// Prints "R*plac* th* l*tt*r * with *"
 ***
 ## Question 15
 
@@ -260,6 +347,11 @@ Input:
 
 Output:
 `"olleH"`
+___________________________
+Answer: var aString = "this string has 29 characters"
+var reverse = String(aString.reversed())
+print(reverse)
+// Prints "sretcarahc 92 sah gnirts siht"
 
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
