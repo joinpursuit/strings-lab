@@ -14,20 +14,52 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+```swift
+var numString = ""
+for num in 1...10{
+    numString+= String(num)
+}
+print(numString)
+```
+
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+
+```swift
+var numString = ""
+for num in 5...51 where num%2==0 {
+    numString+= String(num)
+}
+print(numString)
+```
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+```swift
+var numString =""
+for num in 1...60 where num%10==4 {
+    numString+= String(num)
+}
+print(numString)
+```
+
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+
+```swift
+var str = "Hello world!"
+
+for char in str {
+    print(char)
+}
+```
 
 ***
 ## Question 5
@@ -36,27 +68,75 @@ Print out the last character in the string below.  You cannot use the Character 
 
 `let myStringSeven = "Hello world!"`
 
+My code:
+```swift
+print(myString[myString.index(before: myString.endIndex)])
+```
+
 ***
 ## Question 6
 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
+```swift
+var str1 = "abcde"
+for (index, element) in str1.enumerated() {
+    switch index%2 {
+    case 0:
+        print(element)
+    default:
+        print(terminator:"")
+    }
+}
+```
 
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
+```swift
+let char:Character = "a"
+let str = String(char)
+
+print(type(of: char))
+
+```
 
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
 
+```swift
+var strPair1 = "A"
+var str2Pair1 = "\u{0041}"
+
+var strPair2 = "B"
+var str2Pair2 = "\u{0042}"
+
+var strPair3 = "C"
+var str2Pair3 = "\u{0043}"
+
+var strPair4 = "D"
+var str2Pair4 = "\u{0044}"
+
+var strPair5 = "E"
+var str2Pair5 = "\u{0045}"
+
+
+if strPair1 == str2Pair1 && strPair2 == str2Pair2 && strPair3 == str2Pair3 && strPair4 == str2Pair4 && strPair5 == str2Pair5 {
+    "They are the same"
+}
+```
+
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+```swift
+print("\u{0048}\u{0045}\u{004c}\u{004c}\u{004f}\u{0020}\u{0057}\u{004f}\u{0052}\u{004c}\u{0044}\u{0021}")
+```
 
 ***
 ## Question 10
@@ -91,6 +171,32 @@ Flower Box:
 - - - - - - - - - - -
 ```
 
+My code:
+```swift
+
+var even = "|"
+var odd = "\u{2698}"
+var topAndBottomOfBox = """
+"""
+
+for _ in 0...10 {
+    topAndBottomOfBox += "- "
+}
+print(topAndBottomOfBox)
+for _ in 0...6 {
+    for x in 0...10 {
+        if x%2==0{
+            print(even, terminator: " ")
+        } else {
+            print(odd, terminator: " ")
+        }
+    }
+    print()
+}
+print(topAndBottomOfBox)
+}
+```
+
 ***
 ## Question 13
 
@@ -106,6 +212,25 @@ Chess Board:
 
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+```
+
+My code:
+```swift
+for row in 0...7 {
+    if (row == 0){
+    print("\u{2656} \u{2658} \u{2657} \u{2655} \u{2654} \u{2657} \u{2658} \u{2656}")
+    } else if (row == 7) {
+    print("\u{265c} \u{265e} \u{265d} \u{265b} \u{265a} \u{265d} \u{265e} \u{265c}")
+    }
+    for _ in 0...7 {
+        if (row == 1) {
+            print("\u{2659}", terminator: " ")
+        } else if (row == 6) {
+            print("\u{265F}", terminator: " ")
+        }
+    }
+    print()
+}
 ```
 
 ***
@@ -126,6 +251,13 @@ Input:
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
 
+My code:
+```swift
+var aString = "Replace the letter e with *"
+var replacedString = replacedString.replacingOccurance(of: "e", with "*")
+print(replacedString)
+```
+
 ***
 ## Question 15
 
@@ -136,6 +268,12 @@ var aString = "this string has 29 characters"
 var reverse = ""
 
 // Your code here
+```
+
+```swift
+var aString1 = "this string has 29 characters"
+var reverse = String(aString1.reversed())
+print(reverse)
 ```
 
 Example:
@@ -168,6 +306,22 @@ occasional \() by late afternoon. Wind velocity will
 be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
+```
+
+My code:
+```swift
+var geographicLocation: String = "New York"
+var adjective1: String = "cold"
+var pluralNoun1: String = "winds"
+var adjective2: String = "warm"
+var pluralNoun2: String = "storms"
+var number1: Int = 23
+var number2: Int = 60
+var articleOfClothing: String = "raincoat"
+
+var madLib = "Here is tomorrow's weather report for \(geographicLocation) and vicinity. Early tomorrow, a \(adjective1)-front will collide with a mass of hot \(pluralNoun1) moving from the north. This means we can expect \(adjective2) winds and occasional \(pluralNoun2) by late afternoon. Wind velocity will be \(number1) miles an hour, and the high temperature should be around \(number2) degrees. So, if you're going out, you had better plan on wearing your \(articleOfClothing)."
+
+print(madLib)
 ```
 
 ***
