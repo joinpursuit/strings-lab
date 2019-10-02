@@ -13,45 +13,126 @@
 
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
-
+Answer:
+``` swift
+var str = ""
+for num in 1...10 {
+   str += String(num)+ " "
+}
+print(str)
+```
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
-
+Answer:
+``` swift
+var str = ""
+for num in 5...51 {
+    if num % 2 == 0 {
+   str += String(num) + " "
+}
+}
+print(str)
+```
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
-
+Answer:
+``` swift
+var st = ""
+for num in 1...60 {
+    if num % 10 == 4 {
+   st += String(num) + " "
+}
+}
+print(st)
+```
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
-
+Answer:
+``` swift
+let helloWorld = "Hello world"
+var counter = 0
+for char in helloWorld {
+    print(char)
+}
+```
 ***
 ## Question 5
 
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+Answer:
+``` swift
+let myStringSeven = "Hello world!"
+let lastIndex = myStringSeven.endIndex
+let lastCharacterIndex = myStringSeven.index(before: lastIndex)
+let lastCharacter = myStringSeven[lastCharacterIndex]
+print(lastCharacter)
 
+```
 ***
 ## Question 6
 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
-
+``` swift
+switch myString {
+case myString where myString.count % 2 == 0:
+    for char in myString {
+        print(char, terminator: " ")
+    }
+default:
+    for (index, char) in myString.enumerated() where index % 2 == 1 {
+        print(char, terminator: " ")
+    }
+}
+```
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
-
+``` swift
+let string: Character = "s"
+```
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+Answer:
+``` swift
+llet aCharacter = "a"
+let unicodeLowercaseA = "\u{0061}"
+if unicodeLowercaseA == aCharacter {
+    print("\(aCharacter) is \(unicodeLowercaseA) in unicode")
+}
+let cCharacter = "c"
+let unicodeUpperCaseC = "\u{0043}"
+if unicodeUpperCaseC == cCharacter {
+    print("\(cCharacter) is \(unicodeUpperCaseC) in unicode")
+}
+let sCharacter = "s"
+let unicodeLowerCaseS = "\u{0073}"
+if unicodeLowerCaseS == sCharacter {
+    print("\(sCharacter) is \(unicodeLowerCaseS) in unicode")
+}
+let nCharacter = "n"
+let unicodeLowercaseN = "\u{006E}"
+if unicodeLowercaseN == nCharacter {
+    print("\(nCharacter) is \(unicodeLowercaseN) in unicode")
+}
+let dCharacter = "d"
+let unicodeLowerCaseD = "\u{0064}"
+if unicodeLowerCaseD == dCharacter {
+    print("\(dCharacter) is \(unicodeLowerCaseD) in unicode")
+}
+```
 
 ***
 ## Question 9
@@ -62,7 +143,11 @@ Build five pairs of **canonically equivalent** strings, the first of each being 
 ## Question 10
 
 **Using only Unicode**, print out your name.
+``` swift
+let casandra = "\u{0043}\u{0061}\u{0073}\u{0061}\u{006E}\u{0064}\u{0072}\u{0061}"
+print(casandra)
 
+```
 ***
 ## Question 11
 
@@ -89,6 +174,25 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
+Answer:
+var N = 6
+var flowers = " \u{2698} "
+var borders = "-"
+var rows = "|"
+
+for _ in 1...11 {
+    print(borders, terminator: " ")
+}
+print()
+ for _ in 1...6 {
+    for _ in 1...5 {
+        print(rows , terminator: flowers)
+    }
+    print(rows)
+    }
+for _ in 1...11 {
+    print(borders, terminator: " ")
+}
 ```
 
 ***
@@ -107,6 +211,32 @@ Chess Board:
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
+answer"
+```
+let whiteRook = "\u{2656}"
+let whiteKnight = "\u{2658}"
+let whiteBishop = "\u{2657}"
+let whiteQueen = "\u{2655}"
+let whiteKing = "\u{2654}"
+let whitePawn = "\u{2659}"
+let blackRook = "\u{265C}"
+let blackKnight = "\u{265E}"
+let blackBishop = "\u{265D}"
+let blackKing = "\u{265A}"
+let blackQueen = "\u{265B}"
+let blackPawn = "\u{265F}"
+var whitePawns = String(repeating: whitePawn, count: 8)
+var blackPawns = String(repeating: blackPawn, count: 8)
+var whitePieces = whiteRook+whiteKnight+whiteBishop+whiteQueen+whiteKing+whiteBishop+whiteKnight+whiteRook
+var blackPieces = blackRook+blackKnight+blackBishop+blackQueen+blackKing+blackBishop+blackKnight+blackRook
+var chessBoard = """
+\(whitePieces)
+\(whitePawns)
+\(blackPawns)
+\(blackPieces)
+"""
+```
+
 
 ***
 ## Question 14
@@ -115,7 +245,16 @@ You are given a string stored in the variable `aString`. Create new string named
 
 ```swift
 var aString = "Replace the letter e with *"
-// Your code here
+// var aString = "Replace the letter e with *"
+var replacedString = ""
+for char in aString {
+    if char == "e" {
+        replacedString += "*"
+    } else {
+        replacedString += String(char)
+}
+}
+print("replacedString = \(replacedString)" )
  ```
 
 Example:
@@ -135,7 +274,9 @@ You are given a string stored in variable `aString`. Create a new string called 
 var aString = "this string has 29 characters"
 var reverse = ""
 
-// Your code here
+// var aString = "this string has 29 characters"
+var reverse = String(aString.reversed())
+print(reverse)
 ```
 
 Example:
@@ -151,23 +292,26 @@ Output:
 ```swift
 
 
-var geographicLocation: String
-var adjective1: String
-var pluralNoun1: String
-var adjective2: String
-var pluralNoun2: String
-var number1: Int
-var number2: Int
-var articleOfClothing: String
+var geographicLocation: String = "Colombia"
+var adjective1: String = "Sleepy"
+var pluralNoun1: String = "Pandas"
+var adjective2: String = "Exhausted"
+var pluralNoun2: String = "Puppies"
+var number1: Int = 1
+var number2: Int = 13
+var articleOfClothing: String = "skirt"
 
-var madLib = "Here is tomorrow's weather report for \()
-and vicinity. Early tomorrow, a \()-front will
-collide with a mass of hot \() moving from the
-north. This means we can expect \() winds and
-occasional \() by late afternoon. Wind velocity will
-be \() miles an hour, and the high temperature should
-be around \() degrees. So, if you're going out, you had
-better plan on wearing your \()".
+var madLib = "Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing)".
+
+print(madLib)
+
 ```
 
 ***
