@@ -195,7 +195,23 @@ Flower Box:
 ```
 
 //  Answers:
+for _ in 0...10   {
+    print("-", terminator : " ")
+}
 
+print()
+
+for _ in 0...6  {
+    for _ in 0...4  {
+        print("|", terminator : " \u{2698} ")
+    }
+    print("|")
+    //print()
+}
+
+for _ in 0...10   {
+    print("-", terminator : " ")
+}
 
 ***
 ## Question 13
@@ -213,6 +229,31 @@ Chess Board:
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 ```
+//  Answers:
+let wPawn = "\u{2659}"
+let bPawn = "\u{265f}"
+let wKing = "\u{2654}"
+let bKing = "\u{265A}"
+let wQueen = "\u{2655}"
+let wRook = "\u{2656}"
+let wBishop = "\u{2657}"
+let wKnight = "\u{2658}"
+let bQueen = "\u{265B}"
+let bRook = "\u{265C}"
+let bBishop = "\u{265d}"
+let bKnight = "\u{265e}"
+
+print(
+"""
+\(wRook) \(wKnight) \(wBishop) \(wQueen) \(wKing) \(wBishop) \(wKnight) \(wRook)
+\(wPawn) \(wPawn) \(wPawn) \(wPawn) \(wPawn) \(wPawn) \(wPawn) \(wPawn)
+    
+    
+    
+
+\(bPawn) \(bPawn) \(bPawn) \(bPawn) \(bPawn) \(bPawn) \(bPawn) \(bPawn)
+\(bRook) \(bKnight) \(bBishop) \(bQueen) \(bKing) \(bBishop) \(bKnight) \(bRook)
+""")
 
 ***
 ## Question 14
@@ -222,6 +263,8 @@ You are given a string stored in the variable `aString`. Create new string named
 ```swift
 var aString = "Replace the letter e with *"
 // Your code here
+var replacedString = aString.replacingOccurrences(of: "e", with: "*")
+print(replacedString)
  ```
 
 Example:
@@ -242,6 +285,8 @@ var aString = "this string has 29 characters"
 var reverse = ""
 
 // Your code here
+reverse = String(aString.reversed())
+print(reverse)
 ```
 
 Example:
@@ -275,7 +320,6 @@ be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
 ```
-
 ***
 
 # Bonus :)
