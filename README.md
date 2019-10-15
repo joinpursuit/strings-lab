@@ -44,7 +44,7 @@ for num in 0...60 {
 Print each character in the string `"Hello world!"`
 
 ***
- var message = "hello world"
+ var message = "Hello world!"
  for char in message {
      print(char)
  }
@@ -115,7 +115,7 @@ print("\u{004D}\u{0065}\u{006c}\u{0069}\u{006e}\u{0064}\u{0061}")
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
-
+print("\u{0048}\u{006F}\u{006C}\u{0061}\u{0081} \u{006D}\u{0075}\u{006E}\u{0064}\u{006F}")
 ***
 ## Question 12
 
@@ -138,7 +138,7 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
-print(terminator:"""
+print(terminator: """
 - - - - - - - - - - -
 | \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
 | \u{2698} | \u{2698} | \u{2698} | \u{2698} | \u{2698} |
