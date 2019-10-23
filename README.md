@@ -54,12 +54,25 @@ print(numString2)
 
 Print each character in the string `"Hello world!"`
 
+var str1 = "Hello World"
+for char in str1 {
+    print(char)
+}
+
 ***
 ## Question 5
 
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+
+let myStringSeven = "Hello world!"
+
+let endIndex = myStringSeven.endIndex
+let lastCharacterIndex = myStringSeven.index(before: endIndex)
+let lastCharacter = myStringSeven[lastCharacterIndex]
+print("last character in \(myStringSeven) is", lastCharacter)
+
 
 ***
 ## Question 6
@@ -68,15 +81,34 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+var message = "Hello world"
+switch message {
+case message where message.count % 2 == 0:
+  for char in message {
+    print(char, terminator: " ")
+  }
+default:
+  for (index, char) in message.enumerated() where index % 2 == 0 {
+    print(char, terminator: " ")
+  }
+}
+
+
+
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 
+var stringInitializedWithChar = Character("S")
+
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+
+
+
 
 ***
 ## Question 9
