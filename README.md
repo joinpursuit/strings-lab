@@ -14,7 +14,7 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
-var numString=""
+var numString= ""
 for num in 1...10{
     numString += String(num)
     print(numString)
@@ -25,7 +25,7 @@ for num in 1...10{
 Write code that prints out all the even numbers from 5 to 51 as a single string.
 
 var numString1 = ""
-for num in 5...51{
+for num in 5...51 {
     if num % 2 ==  0 {
         numString1 += String(num)
         
@@ -40,7 +40,7 @@ Write code that prints out every number ending in 4 between 1 and 60 as a single
 
 
 var numString2 = ""
-for num in 1...60{
+for num in 1...60 {
     if num % 10 ==  4 {
 numString2 += String(num)
     }
@@ -107,13 +107,32 @@ var stringInitializedWithChar = Character("S")
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
 
-
+let unicodeLowercaseA = "\u{0061} "
+let string1 = "hey"
+let string_1 = "\u{0068}\u{0065}\u{0079}"
+let string2 = "let me finish"
+let string_2 = "\u{006C}\u{0065}\u{0074}\u{0020}\u{006D}\u{0065}\u{0020}\u{0066}\u{0069}\u{006E}\u{0069}\u{0073}\u{0068} "
+let aCharacter = "a"
+if unicodeLowercaseA == aCharacter {
+  print("they are equal")
+}
+if string1 == string_1 {
+  print("they are equal, they both say \(string_1)")
+}
+if string2 == string_2 {
+  print("they are equal, they both say \(string_2)")
+}
 
 
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+
+
+let hey = "\u{0048}\u{0045}\u{004C}\u{004C}\u{004F}\u{0020}\u{0057}\u{004F}\u{0052}\u{004C}\u{0044}"
+print(hey)
+
 
 ***
 ## Question 10
@@ -174,6 +193,12 @@ You are given a string stored in the variable `aString`. Create new string named
 var aString = "Replace the letter e with *"
 // Your code here
  ```
+ var aString = "Replace the letter e with *"
+  for letter in aString {
+  if letter == "e"{
+  letter = "*"
+ }
+ }
 
 Example:
 
