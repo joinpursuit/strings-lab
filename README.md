@@ -13,21 +13,43 @@
 
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
+'''
+or num in 1...10{
+print(String(num), terminator: " ")
 
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+    for num in 5...51{
+        if num % 2 == 0 && num <= 50 {
+            print(String(num),terminator:" ") 
+    }
+}
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
-
+'''
+    for num in 1...60{
+        if num % 10 == 4  {
+            print(String(num),terminator:" ")
+    }
+}
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+
+let statement = "hello world"
+var counter = 0
+for char in statement{
+    if counter < 11 {
+print(char)
+    counter += 1
+}else{break}
+}
 
 ***
 ## Question 5
@@ -35,7 +57,16 @@ Print each character in the string `"Hello world!"`
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+'''
+my answer is wrong im stumped 
 
+let myStringSeven = "hello world"
+myStringSeven.count
+
+let endIndex = myStringSeven.endIndex
+let lastCharacter = myStringSeven.index(before: endIndex)
+
+print("last character in \(myStringSeven) is \(d) ")
 ***
 ## Question 6
 
@@ -43,11 +74,25 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+let stringLegnth = "get the bag"
+stringLegnth.count
+for char in stringLegnth {
+    where: (char % 2 == 0)
+    switch stringLegnth {
+    case: (0...11)
+print(char)
+    default:
+        print("")
+}
+}
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
-
+let firstCharacter: Character = "x"
+let  str = String(firstCharacter)
+print(type(of:firstCharacter))
+print(firstCharacter)
 ***
 ## Question 8
 
@@ -57,16 +102,22 @@ Build five pairs of **canonically equivalent** strings, the first of each being 
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+let helloWorld = "\u{0048}\u{0045}\u{004c}\u{004c}\u{004f}\u{0020}\u{0057}\u{004f}\u{0052}\u{004c}\u{0044}"
+print(helloWorld)
 
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
-
+```
+let myName = "\u{0058}\u{0045}\u{0052}\u{0041}"
+print(myName)
+```
 ***
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
+
 
 ***
 ## Question 12
@@ -117,6 +168,11 @@ You are given a string stored in the variable `aString`. Create new string named
 var aString = "Replace the letter e with *"
 // Your code here
  ```
+ ```
+ var aString = "Replace the letter e with *"
+ var replacedString = aString.replacingOccurrences(of: "e", with:"*")
+ print(replacedString)
+```
 
 Example:
 
@@ -144,6 +200,16 @@ Input:
 
 Output:
 `"olleH"`
+```
+var aString = "this string has 29 characters"
+var reverse = aString.reversed()
+for char in reverse {
+    
+        
+        print(char, terminator: "")
+    
+}
+```
 
 
 ## 16. Mad-Libs! Add a value to the declared variables below in playgrounds. Insert the variables (already in correct order) inside the stringmadLib and print. 
@@ -169,7 +235,28 @@ be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
 ```
+```
+var geographicLocation: String = "brooklyn"
+var adjective1: String = "cloudy"
+var pluralNoun1: String = "winds"
+var adjective2: String = "hurricane"
+var pluralNoun2: String = "rain"
+var number1: Int = 10
+var number2: Int = 90
+var articleOfClothing: String = "panties"
 
+
+var madLib = """
+Here is tomorrow's weather report for \(geographicLocation)
+and vicinity. Early tomorrow, a \(adjective1)-front will
+collide with a mass of hot \(pluralNoun1) moving from the
+north. This means we can expect \(adjective2) winds and
+occasional \(pluralNoun2) by late afternoon. Wind velocity will
+be \(number1) miles an hour, and the high temperature should
+be around \(number2) degrees. So, if you're going out, you had
+better plan on wearing your \(articleOfClothing)".
+"""
+```
 ***
 
 # Bonus :)
